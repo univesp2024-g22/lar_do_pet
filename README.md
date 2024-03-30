@@ -10,11 +10,13 @@ git clone https://github.com/vivianemk/LarDoPet
 
   PostgreSQL
   https://www.postgresql.org/download/windows/
+  
   link direto:
   https://sbp.enterprisedb.com/getfile.jsp?fileid=1258893
   
   PgAdmin
   https://www.pgadmin.org/download/pgadmin-4-windows/
+  
   link direto:
   https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v8.4/windows/pgadmin4-8.4-x64.exe
   
