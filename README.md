@@ -1,7 +1,8 @@
 1. Clonar github
 
 git clone https://github.com/vivianemk/LarDoPet
-t
+
+
 2. Instalar programas requeridos
 
   python 3.10
