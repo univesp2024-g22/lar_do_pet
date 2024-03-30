@@ -20,12 +20,12 @@ git clone https://github.com/vivianemk/LarDoPet
   
   VSCode
   https://code.visualstudio.com/
-  > Instalar as extensões:
+  Instalar as extensões:
   Thunder client
   Material Icon Theme
   Python
    
-4. Instalar ambiente
+3. Instalar ambiente
 
 
   Abrir código dentro do VS Code
@@ -47,15 +47,15 @@ git clone https://github.com/vivianemk/LarDoPet
   pip freeze > requirements.txt
   
   
-3. Rodar o programa
+4. Rodar o programa
 
   Abrir o PGAdmin e criar um novo banco de dados chamado animal
   
-  > Criar tabelas no banco
+  Criar tabelas no banco
   no terminal do VSCode rodar: 
   python criar_tabelas.py
 
-  > Executar o programa
+  Executar o programa
   no terminal do VSCode rodar: 
   python main.py
    
