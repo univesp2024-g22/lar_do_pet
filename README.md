@@ -1,24 +1,17 @@
-1. Clonar github
-
-git clone https://github.com/vivianemk/LarDoPet
-
+1. Criar a pasta do projeto e Clonar o repositório
+git clone git@github.com:univesp2024-g22/lar_do_pet.git
 
 2. Instalar programas requeridos
 
-  python 3.10
-  https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe   
+  python 3.12
+  https://www.python.org/downloads/
 
   PostgreSQL
-  https://www.postgresql.org/download/windows/
+  https://www.postgresql.org/download/
   
-  link direto:
-  https://sbp.enterprisedb.com/getfile.jsp?fileid=1258893
   
   PgAdmin
-  https://www.pgadmin.org/download/pgadmin-4-windows/
-  
-  link direto:
-  https://ftp.postgresql.org/pub/pgadmin/pgadmin4/v8.4/windows/pgadmin4-8.4-x64.exe
+  https://www.pgadmin.org/download/
   
   VSCode
   https://code.visualstudio.com/
@@ -27,31 +20,33 @@ git clone https://github.com/vivianemk/LarDoPet
   Material Icon Theme
   Python
    
-3. Instalar ambiente
-
-
+3. Instalar ambiente (Windows)
   Abrir código dentro do VS Code
   rodar dentro do cmd na pasta LarDoPet
-  python -m virtualenv lardopet -p python3.10
- 
-  pip install virtualenv
-  pip install virtualenvwrapper-win
+  ```shell
+  python3.12 -m venv venv_pet
+  venv_pet\Scripts\activate
+  pip install -r requirements.txt
   
-  pip install fastapi==0.75.2
-  pip install uvicorn==0.17.6
-  pip install gunicorn==20.1.0
-  pip install pydantic==1.9.0 
+  ```
   
-  pip install SQLAlchemy==1.4.36
-  pip install psycopg2-binary==2.9.3
-  pip install asyncpg==0.25.0
-  
-  pip freeze > requirements.txt
-  
-  
-4. Rodar o programa
+4. Instalar Ambiente (Unix / WSL)
+  ```bash
+  python3.12 -m venv venv_pet
+  source venv_pet/bin/activate # <- Unix
+  pip install -r requirements.txt
+  ```
+
+5. Rodar o programa
 
   Abrir o PGAdmin e criar um novo banco de dados chamado animal
+  ou, como superusuário:
+  
+  ```sql
+  create user lardopet with password 'lardopet';
+  create database lardopet;
+  grant all privileges on database lardopet to lardopet;
+  ```
   
   Criar tabelas no banco
   no terminal do VSCode rodar: 
@@ -61,4 +56,4 @@ git clone https://github.com/vivianemk/LarDoPet
   no terminal do VSCode rodar: 
   python main.py
    
-5. 
+

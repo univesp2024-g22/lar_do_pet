@@ -4,10 +4,10 @@ from datetime import date
 
 from sqlalchemy import Column, Integer, String
 
-class AnimalModel(settings.DBBaseModel): 
+class AnimalModel(settings.DBBase): 
     __tablename__='animal'
     
-    id: int = Column(Integer, primary_key=True, autoincrement=True)
+    animal_id: int = Column(Integer, primary_key=True, autoincrement=True)
     nome: str = Column(String(100))
     especie: str = Column(String(100))
     #data_entrada: date = Column(date)
