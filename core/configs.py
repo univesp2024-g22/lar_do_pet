@@ -11,7 +11,8 @@ class DBBase(AsyncAttrs, DeclarativeBase):
 
 class Settings(BaseSettings):
     API_V1_STR: str = '/api/v1'
-    DB_URL: str = "postgresql+asyncpg://lardopet:lardopet@localhost:5432/lardopet"
+    #DB_URL: str = "postgresql+asyncpg://lardopet:lardopet@localhost:5432/lardopet"
+    DB_URL: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/conexaopet"
     DBBase: DeclarativeAttributeIntercept = DBBase
     class Config:
         case_sensitive = True
