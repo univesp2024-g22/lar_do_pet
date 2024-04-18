@@ -1,36 +1,44 @@
 # Projeto Integrador em Computação I - Semestre 01/2024
 =======================================================
 1. Criar a pasta do projeto e Clonar o repositório
-git clone git@github.com:univesp2024-g22/lar_do_pet.git
 
+Criar uma pasta para baixar o projeto e no terminal (cmd no Windows) faça:
+git clone -b <branch_name> <git_address>
+```shell
+git clone -b feature_0 https://github.com/univesp2024-g22/lar_do_pet.git
+```
 2. Instalar programas requeridos
-
+  
   python 3.12
-  https://www.python.org/downloads/
-
-  PostgreSQL
-  https://www.postgresql.org/download/
-  
-  
-  PgAdmin
-  https://www.pgadmin.org/download/
-  
-  VSCode
-  https://code.visualstudio.com/
-  Instalar as extensões:
-  Thunder client
-  Material Icon Theme
-  Python
-   
-3. Instalar ambiente (Windows)
-  Abrir código dentro do VS Code
-  rodar dentro do cmd na pasta LarDoPet
   ```shell
-  python3.12 -m venv venv_pet
+  https://www.python.org/downloads/
+  ```
+  PostgreSQL
+  ```shell
+  https://www.postgresql.org/download/
+  ```
+  PgAdmin
+  ```shell
+  https://www.pgadmin.org/download/
+  ```
+  VSCode
+  ```shell
+  https://code.visualstudio.com/
+  ```
+  Instalar as extensões:
+  Thunder client, Material Icon Theme e Python
+
+  
+3. Instalar ambiente (Windows)
+
+  Abrir código dentro do VS Code
+  rodar dentro do cmd na pasta do projeto (pasta lar_do_pet)
+  ```shell
+  python -m venv venv_pet
   venv_pet\Scripts\activate
   pip install -r requirements.txt
-  
   ```
+
   
 4. Instalar Ambiente (Unix / WSL)
   ```bash
@@ -41,8 +49,7 @@ git clone git@github.com:univesp2024-g22/lar_do_pet.git
 
 5. Rodar o programa
 
-  Abrir o PGAdmin e criar um novo banco de dados chamado animal
-  ou, como superusuário:
+  Abrir o PGAdmin e criar um novo banco de dados chamado lardopet:
   
   ```sql
   create user lardopet with password 'lardopet';
@@ -52,6 +59,12 @@ git clone git@github.com:univesp2024-g22/lar_do_pet.git
   
   Criar tabelas no banco (cuidado, pois esse comando destrói tabelas existentes)
   python criar_tabelas.py
+<<<<<<< HEAD
 
   Para rodar, no terminal (ou terminal do VSCode):
+=======
+  
+  Executar o programa
+  no terminal do VSCode rodar: 
+>>>>>>> 025190a886d1ea1f9409fe50a747e5bea32e6216
   python main.py

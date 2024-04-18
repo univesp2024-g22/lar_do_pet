@@ -5,7 +5,8 @@ from datetime import date
 from pydantic import BaseModel as SCBaseModel
 
 
-class AnimalBase(SCBaseModel):
+class AnimalSchema(SCBaseModel):
+    id: Optional[int] = None
     nome: str
     especie: str
     #data_entrada: date
@@ -16,13 +17,9 @@ class AnimalBase(SCBaseModel):
     porte: str
     peso: int
     temperamento: str
-    adotado: str
+    adotado: bool
+    usuario_id: Optional[int]
     
-
-class AnimalCreate(AnimalBase):
-    pass
-
-class Animal(AnimalBase):
-    animal_id: int
     class Config:
+        orm_mode = True
         from_attributes = True
