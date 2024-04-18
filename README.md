@@ -1,3 +1,5 @@
+# Projeto Integrador em Computação I - Semestre 01/2024
+=======================================================
 1. Criar a pasta do projeto e Clonar o repositório
 git clone git@github.com:univesp2024-g22/lar_do_pet.git
 
@@ -48,12 +50,8 @@ git clone git@github.com:univesp2024-g22/lar_do_pet.git
   grant all privileges on database lardopet to lardopet;
   ```
   
-  Criar tabelas no banco
-  no terminal do VSCode rodar: 
+  Criar tabelas no banco (cuidado, pois esse comando destrói tabelas existentes)
   python criar_tabelas.py
 
-  Executar o programa
-  no terminal do VSCode rodar: 
+  Para rodar, no terminal (ou terminal do VSCode):
   python main.py
-   
-
