@@ -12,15 +12,15 @@ from core.deps import get_session
 
 router = APIRouter()
 
-@router.post('/', status_code=status.HTTP_201_CREATED, response_model=animal_schema.Animal)
-async def post_animal(animal: animal_schema.AnimalCreate, db: AsyncSession = Depends(get_session)):
+@router.post('/', status_code=status.HTTP_201_CREATED, response_model=animal_schema.AnimalSchema)
+async def post_animal(animal: animal_schema.AnimalSchema, db: AsyncSession = Depends(get_session)):
     novo_animal= AnimalModel(**animal.dict())
     db.add(novo_animal)
     await db.commit()
     
     return novo_animal
 
-@router.get('/', response_model=List[animal_schema.Animal])
+@router.get('/', response_model=List[animal_schema.AnimalSchema])
 async def get_animais(db:AsyncSession = Depends(get_session)):
     async with db as session:
         query = select(AnimalModel)
@@ -29,7 +29,7 @@ async def get_animais(db:AsyncSession = Depends(get_session)):
         
         return animais
 
-@router.get('/{animal_id}', response_model=animal_schema.Animal, status_code=status.HTTP_200_OK)
+@router.get('/{animal_id}', response_model=animal_schema.AnimalSchema, status_code=status.HTTP_200_OK)
 async def get_animal(animal_id: int, db: AsyncSession = Depends(get_session)):
     async with db as session:
         query = select(AnimalModel).filter(AnimalModel.animal_id == animal_id)
@@ -41,8 +41,8 @@ async def get_animal(animal_id: int, db: AsyncSession = Depends(get_session)):
         else:
             raise HTTPException(detail='animal não encontrado', status_code=status.HTTP_404_NOT_FOUND)
 
-@router.put('/{animal_id}', response_model=animal_schema.Animal, status_code=status.HTTP_202_ACCEPTED)
-async def put_animal(animal_id: int, animal: animal_schema.AnimalCreate, db: AsyncSession = Depends(get_session)):
+@router.put('/{animal_id}', response_model=animal_schema.AnimalSchema, status_code=status.HTTP_202_ACCEPTED)
+async def put_animal(animal_id: int, animal: animal_schema.AnimalSchema, db: AsyncSession = Depends(get_session)):
     async with db as session:
         query = select(AnimalModel).filter(AnimalModel.animal_id == animal_id)
         result = await session.execute(query)
