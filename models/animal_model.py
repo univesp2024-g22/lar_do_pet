@@ -12,10 +12,13 @@ class AnimalModel(settings.DBBase):
     nome: str = Column(String(256))
     especie: str = Column(String(256))
     #data_entrada: date = Column(date)
+    # NOTE: genero deveria ser um enum
     genero: str = Column(String(256))
+    # NOTE: castrado deveria ser booleano
     castrado: str = Column(String(256))
     #nascimento: date = Column(date)
     raça: str = Column(String(256))
+    # NOTE: porte deveria ser um enum
     porte: str = Column(String(256))
     peso: int = Column(Integer)
     temperamento: str = Column(String(256))

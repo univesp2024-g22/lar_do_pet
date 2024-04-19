@@ -12,6 +12,7 @@ from core.deps import get_session
 
 router = APIRouter()
 
+# PATH: (POST) http://localhost:8000/api/v1/animais
 @router.post('/', status_code=status.HTTP_201_CREATED, response_model=animal_schema.AnimalSchema)
 async def post_animal(animal: animal_schema.AnimalSchema, db: AsyncSession = Depends(get_session)):
     novo_animal= AnimalModel(**animal.dict())
@@ -20,6 +21,7 @@ async def post_animal(animal: animal_schema.AnimalSchema, db: AsyncSession = Dep
     
     return novo_animal
 
+# PATH: (GET) http://localhost:8000/api/v1/animais
 @router.get('/', response_model=List[animal_schema.AnimalSchema])
 async def get_animais(db:AsyncSession = Depends(get_session)):
     async with db as session:
@@ -29,6 +31,7 @@ async def get_animais(db:AsyncSession = Depends(get_session)):
         
         return animais
 
+# PATH: (GET) http://localhost:8000/api/v1/animais/{animal_id}
 @router.get('/{animal_id}', response_model=animal_schema.AnimalSchema, status_code=status.HTTP_200_OK)
 async def get_animal(animal_id: int, db: AsyncSession = Depends(get_session)):
     async with db as session:
@@ -41,6 +44,7 @@ async def get_animal(animal_id: int, db: AsyncSession = Depends(get_session)):
         else:
             raise HTTPException(detail='animal não encontrado', status_code=status.HTTP_404_NOT_FOUND)
 
+# PATH: (PUT) http://localhost:8000/api/v1/animais/{animal_id}
 @router.put('/{animal_id}', response_model=animal_schema.AnimalSchema, status_code=status.HTTP_202_ACCEPTED)
 async def put_animal(animal_id: int, animal: animal_schema.AnimalSchema, db: AsyncSession = Depends(get_session)):
     async with db as session:
@@ -69,6 +73,7 @@ async def put_animal(animal_id: int, animal: animal_schema.AnimalSchema, db: Asy
         await session.commit()
         return animal_model
         
+# PATH: (DELETE) http://localhost:8000/api/v1/animais/{animal_id}
 @router.delete('/{animal_id}', status_code=status.HTTP_204_NO_CONTENT)
 async def delete_animal(animal_id: int, db: AsyncSession = Depends(get_session)):
    async with db as session:
@@ -83,5 +88,4 @@ async def delete_animal(animal_id: int, db: AsyncSession = Depends(get_session))
             return Response(status_code=status.HTTP_204_NO_CONTENT)
         else:
             raise HTTPException(detail=f'animal id ({animal_id}) não encontrado', status_code=status.HTTP_404_NOT_FOUND) 
-        
-        
+
