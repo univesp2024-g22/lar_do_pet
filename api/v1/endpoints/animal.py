@@ -32,7 +32,7 @@ async def get_animais(db:AsyncSession = Depends(get_session)):
 @router.get('/{animal_id}', response_model=animal_schema.AnimalSchema, status_code=status.HTTP_200_OK)
 async def get_animal(animal_id: int, db: AsyncSession = Depends(get_session)):
     async with db as session:
-        query = select(AnimalModel).filter(AnimalModel.animal_id == animal_id)
+        query = select(AnimalModel).filter(AnimalModel.id == animal_id)
         result = await session.execute(query)
         animal = result.scalar_one_or_none()
         
@@ -44,15 +44,30 @@ async def get_animal(animal_id: int, db: AsyncSession = Depends(get_session)):
 @router.put('/{animal_id}', response_model=animal_schema.AnimalSchema, status_code=status.HTTP_202_ACCEPTED)
 async def put_animal(animal_id: int, animal: animal_schema.AnimalSchema, db: AsyncSession = Depends(get_session)):
     async with db as session:
-        query = select(AnimalModel).filter(AnimalModel.animal_id == animal_id)
+        query = select(AnimalModel).filter(AnimalModel.id == animal_id)
         result = await session.execute(query)
         animal_model = result.scalar_one_or_none()
+        
         if not animal_model:
             raise HTTPException(detail=f'animal id ({animal_id}) não encontrado', status_code=status.HTTP_404_NOT_FOUND)
-        modelo_animal = AnimalModel(animal_id=animal_id, **animal.dict())
-        await session.merge(modelo_animal)
+        animal_model.nome = animal.nome
+        animal_model.especie = animal.especie
+        #animal_model.data_entrada = animal.data_entrada
+        animal_model.genero = animal.genero
+        animal_model.castrado = animal.castrado
+        #animal_model.nascimento = animal.nascimento
+        animal_model.raça = animal.raça
+        animal_model.porte = animal.porte
+        animal_model.peso = animal.peso
+        animal_model.temperamento = animal.temperamento
+        animal_model.adotado = animal.adotado
+        
+        #Tive que voltar ao Modelo anterior, pois esse não estava funcionando
+        #modelo_animal = AnimalModel(id=animal_id, **animal.dict())
+        #await session.merge(modelo_animal)
+                
         await session.commit()
-        return modelo_animal
+        return animal_model
         
 @router.delete('/{animal_id}', status_code=status.HTTP_204_NO_CONTENT)
 async def delete_animal(animal_id: int, db: AsyncSession = Depends(get_session)):

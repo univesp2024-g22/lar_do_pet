@@ -2,6 +2,7 @@ from core.configs import settings
 
 from datetime import date
 
+from models.usuario_model import UsuarioModel
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 
 class AnimalModel(settings.DBBase): 
@@ -19,5 +20,6 @@ class AnimalModel(settings.DBBase):
     peso: int = Column(Integer)
     temperamento: str = Column(String(256))
     adotado: bool = Column(Boolean)
-    usuario_id = Column(Integer, ForeignKey('usuario.id'))
+    #usuario_id = Column(Integer, ForeignKey('usuario.id'))
+    usuario_id = Column(Integer, ForeignKey(UsuarioModel.id))
     
