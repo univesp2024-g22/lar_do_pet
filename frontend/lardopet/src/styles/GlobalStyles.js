@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     //paleta de cores
   --branco: #FFFFFF; // branco
   --vermelho: #ff0f0f; // vermelho
-  --amarelo: #e0aa2f; // amarelo
+  --amarelo: #e0be7e; // amarelo
   --verde: #438E82; // verde
 
 }

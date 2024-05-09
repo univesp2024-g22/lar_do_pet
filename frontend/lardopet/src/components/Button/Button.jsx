@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
-export const Button = ({children, ...props}) => {
+import * as S from './styles';
+export const Button = ({ text, type = 'button', onClick, style }) => {
   return (
-    <button  {...props}>{children}</button>
-  )
-}
+    <S.Button type={type} onClick={onClick} style={style}>
+      {text}
+    </S.Button>
+  );
+};
