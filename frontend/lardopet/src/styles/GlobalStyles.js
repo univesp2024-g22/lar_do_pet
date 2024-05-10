@@ -76,5 +76,5 @@ export const Container = styled.main`
   margin: auto auto;
   padding: 1rem;
   background-color: var(--color03);
-  height: 84.5vh;
+  // height: 84.5vh;
 `;
