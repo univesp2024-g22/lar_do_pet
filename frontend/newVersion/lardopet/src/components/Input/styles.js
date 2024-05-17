@@ -18,7 +18,6 @@ export const Input = styled.input`
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  /* margin: 0.5rem; */
   background-color: var(--amarelo);
   color: var(--branco);
   font-weight: bold;

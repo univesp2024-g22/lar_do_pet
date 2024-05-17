@@ -30,6 +30,7 @@ export const Row = styled.div`
   justify-content: space-between;
   width: 100%;
   gap: 2rem;
+  /* background: black; */
 `;
 
 export const TextSignup = styled.span`
@@ -42,7 +43,65 @@ export const Error = styled.span`
 `;
 
 export const Strong = styled.strong`
-  a {
-    color: var(--verde);
+  color: #f00
+`;
+
+export const Label = styled.label`
+  color: var(--verde);
+  font-size: 0.865rem;
+  font-weight: bold;
+  padding: 0.125rem;
+`;
+
+export const Input = styled.input`
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--amarelo);
+  color: var(--branco);
+  font-weight: bold;
+  width: 100%;
+
+  &:focus,
+  :hover {
+    background-color: var(--branco);
+    outline: none;
+    color: var(--preto);
+    box-shadow: 0 0 0 0.125rem var(--verde);
   }
+`;
+
+export const Select = styled.select`
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background-color: var(--amarelo);
+  color: var(--branco);
+  font-weight: bold;
+  width: 100%;
+
+  &:focus,
+  :hover {
+    background-color: var(--branco);
+    outline: none;
+    color: var(--preto);
+    box-shadow: 0 0 0 0.125rem var(--verde);
+  }
+`;
+
+export const Span = styled.span`
+  width: 100%;
+  color: #f00;
+  margin-bottom: 1rem;
+  font-size: .6rem;
+  font-weight: 700;
+`;
+
+export const Div = styled.div`
+  display: 'flex';
+  flex-direction: 'column';
+  gap: '0.625rem';
+  width: '50%';
 `;
