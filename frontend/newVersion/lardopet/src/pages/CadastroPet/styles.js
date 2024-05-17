@@ -5,10 +5,8 @@ export const Container = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: 1240px;
-  margin: 2rem auto;
-  /* background-color: #00f5f5; */
+  width: 100%;
+  padding: 2rem 0;
   gap: 0.625rem;
 `;
 
@@ -18,10 +16,7 @@ export const Content = styled.form`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* max-width: 1240px; */
-  width: 60%;
   box-shadow: 0 1px 2px var(--verde);
-  /* background-color: var(--amarelo); */
   border-radius: 0.375rem;
   padding: 1.25rem;
 `;
