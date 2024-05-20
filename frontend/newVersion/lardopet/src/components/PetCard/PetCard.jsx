@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import { BsGenderFemale, BsGenderMale } from 'react-icons/bs';
 import * as S from './styles';
 import { useAuth } from '../../context/authContext';
 import { Button } from '../Button/Button';
@@ -75,8 +74,7 @@ export const PetCard = ({
             <span>Idade: {' ' + idade + ' ' + tempo}</span>
             <span>Porte: {' ' + porte}</span>
             <S.PetGender>
-              Gênero: {' ' + genero}{' '}
-              {genero === 'Fêmea' ? <BsGenderFemale /> : <BsGenderMale />}
+              Gênero: {' ' + genero}
             </S.PetGender>
             <span>Bairro: {' ' + userBairro}</span>
             <span>Cidade: {' ' + userCidade}</span>

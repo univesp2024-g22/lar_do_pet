@@ -37,9 +37,6 @@ export const PetName = styled.h2`
 `;
 
 export const PetGender = styled.span`
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
   width: 100%;
 `;
 
