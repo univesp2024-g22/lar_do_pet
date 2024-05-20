@@ -23,7 +23,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 1.5rem;
+  color: var(--verde);
   font-weight: 600;
 `;
 

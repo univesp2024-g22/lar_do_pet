@@ -34,14 +34,14 @@ export const Login = () => {
         setMsg('');
         setError('Preencha todos os campos');
         return;
-      } else {
+      } 
         //loga o usuário
+        setError('');
+        setMsg('');
         await signInWithEmailAndPassword(auth, email, password);
         console.log('Usuário logado com sucesso!');
         navigate('/perfil');
-        setError('');
-        setMsg('');
-      }
+      
     } catch (error) {
       //exibe a mensagem de erro
       console.log('Erro de login: ', error);

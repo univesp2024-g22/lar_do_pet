@@ -26,8 +26,8 @@ export const TextContainer = styled.div`
   gap: 0.5rem;`;
 
 export const Title = styled.h1`
-  font-size: 1.5rem;
   font-weight: 600;
+  color: var(--verde);
 `;
 
 export const Text = styled.p`

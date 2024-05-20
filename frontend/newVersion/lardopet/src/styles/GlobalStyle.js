@@ -59,6 +59,29 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 600;
   }
 
+  h1{
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.17rem;
+  }
+
+  h4{
+    font-size: 1rem;
+  }
+
+  h5{
+    font-size: 0.83rem;
+  }
+  h6{
+    font-size: 0.67rem;
+  }
+
   button, a {
     cursor: pointer;
     text-decoration: none;
@@ -71,13 +94,9 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const Container = styled.main`
-  /* max-width: 1240px; */
-  /* margin: auto auto; */
-  /* padding: 1rem; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  /* background-color: var(--amarelo); */
   min-height: 100vh;
 `;

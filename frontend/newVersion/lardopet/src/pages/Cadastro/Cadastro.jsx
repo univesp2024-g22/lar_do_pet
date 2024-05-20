@@ -1,15 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState } from 'react';
 import { Footer } from '../../components/Footer/Footer';
 import { Header } from '../../components/Header/Header';
 import { cepApi } from '../../services/api';
 import { Container } from '../../styles/GlobalStyle';
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 import { Input } from '../../components/Input/Input';
 import * as S from './styles';
 import { Button } from '../../components/Button/Button';
 import { Link, useNavigate } from 'react-router-dom/dist';
-import { auth } from '../../config/firebase/firebase';
+import { auth, db } from '../../config/firebase/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc} from 'firebase/firestore';
 
 export const Cadastro = () => {
   const [firstName, setFirstName] = useState('');
@@ -27,9 +29,51 @@ export const Cadastro = () => {
   const [password, setPassword] = useState('');
   const [confPassword, setConfPassword] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
-  const id = uuid();
+  // const userId = uuid();
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  //chat gpt inicio
+  const registerUser = async (email, password, userDetails) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+  
+      // Armazena as informações adicionais do usuário no Firestore
+      await setDoc(doc(db, 'users', user.uid), {
+        email: user.email,
+        firstName: userDetails.firstName,
+        lastName: userDetails.lastName,
+        phone: userDetails.phone,
+        cep: userDetails.cep,
+        logradouro: userDetails.logradouro,
+        number: userDetails.number,
+        bairro: userDetails.bairro,
+        cidade: userDetails.cidade,
+        uf: userDetails.uf,
+        createdAt: new Date(),
+      });
+  
+      console.log('Usuário registrado com sucesso:', user);
+      navigate('/perfil');
+    } catch (error) {
+      console.error('Erro ao registrar usuário:', error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!firstName || !lastName || !phone || !email || !confEmail || !cep || !logradouro || !number || !bairro || !cidade || !uf || !password || !confPassword) {
+      setError('Preencha todos os campos');
+      return;
+    }
+    setError('');
+    const userDetails = { bairro, cidade, uf, logradouro, number, phone, firstName, lastName, cep};
+    await registerUser(email, password, userDetails);
+  };
+  //chat gpt final
+
+
 
   //consumindo a api do ViaCep com axios para preencher os campos de endereço de forma automática com base no CEP
   const handleCep = (cep) => {
@@ -45,34 +89,6 @@ export const Cadastro = () => {
     });
   };
 
-  //função para criar o usuário
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      if (
-        !firstName |
-        !lastName |
-        !phone |
-        !email |
-        !confEmail |
-        !password |
-        !confPassword |
-        !cep |
-        !number
-      ) {
-        setError('Preencha todos os campos');
-        return;
-      } else {
-        await createUserWithEmailAndPassword(auth, email, password);
-        console.log('Usuário criado com sucesso!');
-        navigate('/perfil');
-        setError('');
-      }
-    } catch (error) {
-      console.log('Erro ao criar usuário: ', error);
-    }
-  };
 
   //valida se os e-mails coincidem
   const validateEmail = () => {
@@ -122,7 +138,7 @@ export const Cadastro = () => {
                 required
               />
               <Input
-                label={'Celular'}
+                label={'Telefone'}
                 name="phone"
                 type="tel"
                 value={phone}
@@ -231,14 +247,7 @@ export const Cadastro = () => {
                 required
               />
             </S.Row>
-            {/* este input não aparece na tela pois é o id gerado para o usuário no momento do cadastro */}
-            <Input
-              type="text"
-              name="id"
-              value={id}
-              disabled={true}
-              styleContainer={{ display: 'none' }}
-            />
+           
             {error && <S.Error>{error}</S.Error>}
             <Button
               text="Cadastrar"
