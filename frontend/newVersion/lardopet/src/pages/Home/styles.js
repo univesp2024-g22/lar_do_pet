@@ -66,8 +66,8 @@ export const Button = styled(Link)`
 `;
 
 export const RightImage = styled.img`
-  width: 95%;
-  height: 100%;
+  width: 35%;
+  height: 68vh;
   margin: auto auto;
   border-radius: 10px;
 

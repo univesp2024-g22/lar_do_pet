@@ -2,13 +2,11 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.main`
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   gap: 3rem;
   padding: 2rem 0;
-  width: 100%;
-  height: 84.3vh;
+  max-width: 1240px;
 
 `;
 
@@ -17,9 +15,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 0.9rem;
-  text-align: center;
-  padding: 0 1rem;
-  max-width: 1240px;
+  max-width: 800px;
+  margin: 1rem auto;
 `;
 
 export const Title = styled.h1`
@@ -33,7 +30,13 @@ export const Text = styled.p`
 
 export const ImagesWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 3rem;
+  justify-content: space-between;
+  /* background-color: aqua; */
+  /* height: inherit; */
+  /* padding: 1rem 0;  */
+  /* margin: 0 1rem; */
 
   @media (max-width: 935px) {
     gap: 1rem;
@@ -41,8 +44,8 @@ export const ImagesWrapper = styled.div`
 `;
 
 export const PetImage = styled.img`
-  height: 200px;
-  margin-top: 1rem;
+  width: 200px;
+  /* margin-top: 1rem; */
   border-radius: 10px;
 
   @media (max-width: 935px) {
