@@ -17,6 +17,10 @@ export const Container = styled.div`
   gap: 0.9rem;
   max-width: 800px;
   margin: 1rem auto;
+
+  & h1, h2 {
+    text-align: center;
+  }
 `;
 
 export const Title = styled.h1`

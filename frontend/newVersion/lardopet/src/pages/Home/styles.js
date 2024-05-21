@@ -14,6 +14,10 @@ export const LeftSection = styled.section`
   flex-direction: column;
   padding: 0.5rem 1rem;
 
+  & h1, h2 {
+    text-align: center;
+  }
+
   @media(max-width: 935px) {
     justify-content: space-evenly;
     padding: 0 1rem;
