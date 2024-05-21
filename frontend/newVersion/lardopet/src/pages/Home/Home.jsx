@@ -11,7 +11,7 @@ export const Home = () => {
       <S.Wrapper>
         <S.LeftSection>
           <S.TextContainer>
-            <S.Title>Bem-vindo ao Lar do Pet!</S.Title>
+            <S.Title>Bem-vindo{'(a)'} ao Lar do Pet!</S.Title>
             <S.Text>
               Nossa missão é conectar tutores dedicados com adotantes amorosos
               para oferecer uma segunda chance aos animais resgatados. No Lar do
