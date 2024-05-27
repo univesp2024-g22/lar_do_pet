@@ -1,24 +1,23 @@
 from typing import Optional
-
 from datetime import date
-
 from pydantic import BaseModel as SCBaseModel
-
 
 class AnimalSchema(SCBaseModel):
     id: Optional[int] = None
-    nome: str
+    name: str
     especie: str
-    #data_entrada: date
     genero: str
-    castrado: str
-    #nascimento: date
-    raça: str
     porte: str
-    peso: int
-    temperamento: str
-    adotado: bool
-    usuario_id: Optional[int]
+    imageUrl: Optional[str]
+    imagePath: Optional[str]
+    userId: Optional[str]
+    userBairro: Optional[str]
+    userCidade: Optional[str]
+    userEstado: Optional[str]
+    userEmail: Optional[str]
+    userFirstName: Optional[str]
+    userPhone: Optional[str]
+    # createdAt: Optional[date]
     
     class Config:
         orm_mode = True

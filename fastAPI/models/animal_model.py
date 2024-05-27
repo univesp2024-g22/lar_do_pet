@@ -1,7 +1,5 @@
 from core.configs import settings
-
 from datetime import date
-
 from models.usuario_model import UsuarioModel
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 
@@ -9,20 +7,17 @@ class AnimalModel(settings.DBBase):
     __tablename__='animal'
     
     id: int = Column(Integer, primary_key=True, autoincrement=True)
-    nome: str = Column(String(256))
+    name: str = Column(String(256))
     especie: str = Column(String(256))
-    #data_entrada: date = Column(date)
-    # NOTE: genero deveria ser um enum
     genero: str = Column(String(256))
-    # NOTE: castrado deveria ser booleano
-    castrado: str = Column(String(256))
-    #nascimento: date = Column(date)
-    raça: str = Column(String(256))
-    # NOTE: porte deveria ser um enum
     porte: str = Column(String(256))
-    peso: int = Column(Integer)
-    temperamento: str = Column(String(256))
-    adotado: bool = Column(Boolean)
-    #usuario_id = Column(Integer, ForeignKey('usuario.id'))
-    usuario_id = Column(Integer, ForeignKey(UsuarioModel.id))
-    
+    imageUrl: str = Column(String(256))
+    imagePath: str = Column(String(256))
+    userId: str = Column(String(256))
+    userBairro: str = Column(String(256))
+    userCidade: str = Column(String(256))
+    userEstado: str = Column(String(2))
+    userEmail: str = Column(String(256))
+    userFirstName: str = Column(String(256))
+    userPhone: str = Column(String(256))
+    # createdAt: date = Column(date)
